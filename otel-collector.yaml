@@ -1,0 +1,51 @@
+receivers:
+  kafka/logs:
+    brokers:
+      - broker:29092
+    group_id: collector-logs
+    topic: otel_logs
+  kafka/metrics:
+    brokers:
+      - broker:29092
+    group_id: collector-metrics
+    topic: otel_metrics
+  kafka/traces:
+    brokers:
+      - broker:29092
+    group_id: collector-traces
+    topic: otel_traces
+
+exporters:
+  logging:
+    verbosity: detailed
+
+processors:
+  batch:
+
+service:
+  pipelines:
+    logs:
+      receivers:
+        - kafka/logs
+      processors:
+        - batch
+      exporters:
+        - logging
+    metrics:
+      receivers:
+        - kafka/metrics
+      processors:
+        - batch
+      exporters:
+        - logging
+    traces:
+      receivers:
+        - kafka/traces
+      processors:
+        - batch
+      exporters:
+        - logging
+
+  telemetry:
+    logs:
+      level: "info"
