@@ -3,9 +3,9 @@
 Demo on using k6 for load testing and with custom extensions.  
 
 ## Prerequisites
-https://docs.docker.com/get-docker/
-https://learn.microsoft.com/en-us/windows/wsl/install
-https://go.dev/doc/install
+https://docs.docker.com/get-docker/ <br />
+https://learn.microsoft.com/en-us/windows/wsl/install <br />
+https://go.dev/doc/install <br />
 
 ## Get XK6-OpenTelemetry extension
 git clone https://github.com/thmshmm/xk6-opentelemetry.git && cd xk6-opentelemetry
